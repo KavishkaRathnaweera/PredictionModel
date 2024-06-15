@@ -1,0 +1,22 @@
+*** available cash amount
+
+Needed to reduce when enter to a buy entry. If we have 100, we can only place orders which sum values are less than 100.
+Otherwise trading env allowed to enter to buy trades more than cash it has. then same cash will be used in multiple trades or it become margin trading.
+
+approach 1:
+for each buy trade, reduce cash and increase shares. After closing trade, increase cash and reduce shares.
+
+approach 2:
+for each buy trade, update available_cash. Keep env cash without any change.
+after closing update, add profit or loss to cash balance. increase available_cash.
+
+Select approach 2 for this application.
+
+*** initial shares
+
+Your current approach does not show any share updates. So assume, at the beginning, no shares are available. Then sell trades are done as short selling.
+Here sell trades are placed without any restriction since it is considered as short selling. You can have margin if you want.
+Cash amounts will be not updated when entering to sell trade. But profit or loss will be added to cash after close it.
+
+*** Portfolio value
+To calculate portfolio value, current cash, shares from buy trades can be considered
